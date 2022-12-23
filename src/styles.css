@@ -1,0 +1,92 @@
+:root{
+    --background: #264653;
+    --accent: #91d1eb;
+    --primary-color: #e76f51;
+    --secondary-color: #f4a261;
+    --variant: #e9c46a;
+}
+
+
+
+body,
+html {
+	min-height: 100%;
+	height: 100%;
+	width: 100%;
+	background-color: var(--background);
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+}
+
+.wrapper {
+    display: flex;
+  }
+
+.head{
+    display: flex;
+    background-color: var(--primary-color);
+    border-radius:10px;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    padding: 1rem;
+}
+
+.spacer{
+    flex: 1;
+}
+
+.user{
+    cursor: pointer;
+}
+
+.menuChoice{
+    margin-right: 5rem;
+    cursor: pointer;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homeText{
+    border-radius: 10rem;
+    padding: 10rem;
+    text-align: center;
+    margin-top: 6rem;
+    background-color: var(--variant);
+}
+
+.titleHome{
+    font-size: 100px;
+}
+
+.infoHome{
+    font-size: 20px;
+}
+
+
+
+
+
+/* form here animation */
+
+.user:hover{
+    transform: scale(1.2);
+    transition: ease-out 0.2s;
+}
+
+.menuChoice:hover{
+    transform: scale(1.2);
+    transition: ease-out 0.2s;
+}
