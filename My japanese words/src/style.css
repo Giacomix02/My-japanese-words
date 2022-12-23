@@ -1,0 +1,123 @@
+:root {
+  --background: #264653;
+  --accent: #91d1eb;
+  --primary-color: #e76f51;
+  --secondary-color: #f4a261;
+  --variant: #e9c46a;
+}
+
+
+
+body,
+html {
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  font-family: 'Source Sans Pro', sans-serif;
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.container{
+  display: flex
+}
+
+.spacer-menu-bar{
+  flex: 1;
+}
+
+.head {
+  flex: 5;
+  display: flex;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  padding: 1rem;
+  max-width: 100rem;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.user {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.menu-choice {
+  margin-right: 5rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.home-text {
+  border-radius: 5rem;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 6rem;
+  background-color: var(--variant);
+  max-width: 50rem;
+  min-height: 15rem;
+  transition: transform 1s;
+  flex: 1;
+}
+
+.title-home {
+  font-size: 100px;
+  cursor: pointer;
+}
+
+
+.title-home-div{
+  min-height: 10rem;
+}
+
+.info-home {
+  font-size: 20px;
+}
+
+
+
+
+
+/* form here animation */
+
+.user:hover {
+  transform: scale(1.2);
+  transition: ease-out 0.2s;
+}
+
+.menu-choice:hover {
+  transform: scale(1.2);
+  transition: ease-out 0.2s;
+}
+
+.title-home:hover {
+  transform: scale(1.2);
+  transition: ease-out 0.2s;
+}
+
+
+
+
