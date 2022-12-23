@@ -68,6 +68,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 
 }
 
@@ -118,6 +121,14 @@ a {
   transition: ease-out 0.2s;
 }
 
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
 
 
 
