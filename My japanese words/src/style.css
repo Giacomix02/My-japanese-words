@@ -1,6 +1,6 @@
 :root {
   --background: #264653;
-  --accent: #91d1eb;
+  --button-color: #91d1eb;
   --primary-color: #e76f51;
   --secondary-color: #f4a261;
   --variant: #e9c46a;
@@ -41,7 +41,7 @@ a {
 }
 
 .head {
-  flex: 5;
+  flex: 1;
   display: flex;
   background-color: var(--primary-color);
   border-radius: 10px;
@@ -49,13 +49,14 @@ a {
   max-width: 100rem;
 }
 
-.spacer {
+.spacer-menu-bar-inside {
   flex: 1;
 }
 
 .user {
   cursor: pointer;
   font-weight: bold;
+  margin-left: auto;
 }
 
 .menu-choice {
@@ -100,6 +101,40 @@ a {
   font-size: 20px;
 }
 
+.add-text-button{
+  margin-left: 0.5rem;
+  font-weight: bold;
+}
+
+.button{
+  cursor: pointer;
+  padding: 0.2rem;
+  display: flex;
+  align-items: center;
+  background-color: #91d1eb;
+  border-radius: 5px;
+  border-color: transparent;
+  margin-left: 3.3rem;
+}
+.spacer-button-right{
+  flex: 1;
+}
+
+.margin-div-button-outside{
+  margin-top: 30px;
+}
+
+.words-show{
+  margin: 3rem;
+  display: flex;
+  background-color: #e9c46a;
+  min-height: 4rem;
+  border-radius: 20px;
+  padding: 1rem;
+  align-items: center;
+
+}
+
 
 
 
@@ -118,6 +153,11 @@ a {
 
 .title-home:hover {
   transform: scale(1.2);
+  transition: ease-out 0.2s;
+}
+
+.button:hover{
+  transform: scale(1.1);
   transition: ease-out 0.2s;
 }
 
