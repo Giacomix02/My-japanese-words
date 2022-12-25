@@ -133,6 +133,10 @@ a {
   padding: 1rem;
   align-items: center;
   padding-right: 40rem;
+  background: linear-gradient(to right, var(--labels) 55%,rgba(255,255,255,0) 100%);
+  animation: fadeInAnimation ease 1.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .image{
