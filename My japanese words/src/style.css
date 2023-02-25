@@ -116,6 +116,7 @@ a {
   border-color: transparent;
   margin-left: 3.3rem;
 }
+
 .spacer-button-right{
   flex: 1;
 }
@@ -125,6 +126,7 @@ a {
 }
 
 .words-show{
+  gap: 0.8em;
   margin: 3rem;
   display: flex;
   background-color: var(--labels);
@@ -132,8 +134,7 @@ a {
   border-radius: 20px;
   padding: 1rem;
   align-items: center;
-  padding-right: 40rem;
-  background: linear-gradient(to right, var(--labels) 55%,rgba(255,255,255,0) 100%);
+  /*padding-right: 40rem;*/
   animation: fadeInAnimation ease 1.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -158,6 +159,18 @@ a {
   font-size: 20px;
   margin-right: auto;
 }
+
+.button-row{
+  background-color: transparent;
+  cursor: pointer;
+  align-items: center;
+  border-color: transparent;
+}
+
+.delete-button{
+  margin-left: 2rem;
+}
+
 
 
 
