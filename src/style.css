@@ -172,10 +172,11 @@ input, a {
 
 .delete-button{
   margin-left: 2rem;
+  justify-content: flex-end;
 }
 
 .overlay {
-  position: fixed; /* Sit on top of the page content */
+  position:fixed; /* Sit on top of the page content */
   display: flex ; /* Hidden by default */
   width: 100%; /* Full width (cover the whole page) */
   height: 100%; /* Full height (cover the whole page) */
@@ -192,7 +193,7 @@ input, a {
   margin-top: 10rem;
   margin-bottom: auto;
   margin-right: auto;
-  min-width: 50rem;
+  /*min-width: 50rem;*/
   padding: 3rem;
   border-radius: 1rem;
   flex-direction: column;
