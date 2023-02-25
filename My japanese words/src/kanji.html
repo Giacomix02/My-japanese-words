@@ -3,10 +3,11 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width">
+        <link rel="icon" type="image/x-icon" href="/logo.svg">
         <title>My Japanese Words</title>
     </head>
     <body>
-        <div class="view-page">   <!--Pagina di visualizzazione-->
+        <div id="view-page">   <!--Pagina di visualizzazione-->
             <div class="container">
                 <div class="spacer-menu-bar"></div>
                   <div class="head wrapper">
@@ -21,15 +22,30 @@
               <!-- end of the menu -->
               <div class="wrapper margin-div-button-outside">
                   <button class="button" id="button">
-                      <img src="/public/add_button.png" class="image">
+                      <img src="/add_button.png" class="image">
                       <a class="add-text-button">Add</a> 
                   </button>
                   <div class="spacer-button-right"> </div>
               </div>
               <div id="container"></div>
         </div>
-        <div class="add-page">
-
+        <div class="overlay" id="add" style="display: none;">
+             <div class="container add-word-overlay">
+                <a class="title">Add a word</a>
+                <div class="input-container">
+                    <input type="text" id="english" placeholder="English translation" class="input-text">
+                    <input type="text" id="kanji" placeholder="Kanji" class="input-text">
+                    <input type="text" id="hiragana" placeholder="Hiragana" class="input-text">
+                </div>
+                <div class="button-insert-all">
+                    <button class="button-word" id="cancel">
+                        <a class="text-button">Cancel</a> 
+                    </button>
+                    <button class="button-word" id="insertWord">
+                        <a class="text-button">Add</a> 
+                    </button>
+                </div>
+             </div>
         </div>
 
         

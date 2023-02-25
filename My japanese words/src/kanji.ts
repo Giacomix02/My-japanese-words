@@ -1,6 +1,26 @@
 let idCount = 0
 
+function showAddWord(){
+    let add = document.getElementById("add")!
+    add.style.display = "block"
+}
+
+function hideAddWord(){
+    let add = document.getElementById("add")!
+    add.style.display = "none"
+}
+
 function addWord(){
+
+    let englishText = (<HTMLInputElement>document.getElementById("english")).value
+    let kanjiText = (<HTMLInputElement>document.getElementById("kanji")).value
+    let hiraganaText = (<HTMLInputElement>document.getElementById("hiragana")).value
+
+    if(englishText == "" || kanjiText == "" || hiraganaText == ""){
+        alert("You must fill all the fields")
+        return
+    }
+
     let container = document.getElementById("container")!
 
     let div = document.createElement("div")
@@ -9,17 +29,23 @@ function addWord(){
 
     let english = document.createElement("a")
     
-    /*
-    let text = document.createTextNode(idCount.toString())
-    english.appendChild(text)                               
-    */
-
+    
+    let text = document.createTextNode(englishText)
+    english.appendChild(text)               
     english.classList.add("english")
 
     let kanji = document.createElement("a")
+
+    
+    let textKanji = document.createTextNode(kanjiText)
+    kanji.appendChild(textKanji)
     kanji.classList.add("kanji")
 
     let hiragana = document.createElement("a")
+
+    
+    let textHiragana = document.createTextNode(hiraganaText)
+    hiragana.appendChild(textHiragana)
     hiragana.classList.add("hiragana")
 
     let editButton = document.createElement("button")
@@ -53,11 +79,20 @@ function addWord(){
     div.appendChild(deleteButton)
 
     container.appendChild(div)
+
+    hideAddWord()
 }
 
 
 let button = document.getElementById("button")!
-button.addEventListener("click",addWord)
+button.addEventListener("click",showAddWord)
+
+let add = document.getElementById("insertWord")!
+add.addEventListener("click",addWord)
+
+let cancel = document.getElementById("cancel")!
+cancel.addEventListener("click",hideAddWord)
+
 
 
 export{}

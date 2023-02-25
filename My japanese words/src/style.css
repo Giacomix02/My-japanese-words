@@ -16,12 +16,15 @@ html {
   background-color: var(--background);
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
   font-family: 'Source Sans Pro', sans-serif;
   user-select: none;
 }
 
-a {
+body{
+  overflow-x: hidden;
+}
+
+input, a {
   text-decoration: none;
   color: inherit;
   font-family: 'Source Sans Pro', sans-serif;
@@ -171,6 +174,83 @@ a {
   margin-left: 2rem;
 }
 
+.overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: flex ; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(0.2rem);
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+.add-word-overlay{
+  margin-left: auto;
+  margin-top: 10rem;
+  margin-bottom: auto;
+  margin-right: auto;
+  min-width: 50rem;
+  padding: 3rem;
+  border-radius: 1rem;
+  flex-direction: column;
+  background-color: var(--primary-color);
+  opacity: 0.9;
+  max-width: 50rem;
+  animation: fadeInAnimation ease 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.title{
+  align-self: center;
+  font-weight: bold;
+  padding-bottom: 10px;
+  font-size: 20px;
+}
+
+.button-insert-all{
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.input-text{
+  background-color: #e9c46a;
+  border-radius: 2rem;
+  border-color: transparent;
+  min-height: 2rem;
+  padding: 5px;
+  text-align: center;
+}
+
+.input-container{
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.button-word{
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  background-color: var(--button-color);
+  border-radius: 5px;
+  border-color: transparent;
+  margin-left: 3.3rem;
+  min-width: 5rem;
+}
+
+.text-button{
+  font-weight: bold;
+}
+
 
 
 
@@ -192,6 +272,11 @@ a {
 }
 
 .button:hover{
+  transform: scale(1.1);
+  transition: ease-out 0.2s;
+}
+
+.button-word:hover{
   transform: scale(1.1);
   transition: ease-out 0.2s;
 }
