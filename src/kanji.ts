@@ -81,6 +81,15 @@ function addWord(){
     container.appendChild(div)
 
     hideAddWord()
+
+    let englishInput = (<HTMLInputElement>document.getElementById("english"))
+    let kanjiInput = (<HTMLInputElement>document.getElementById("kanji"))
+    let hiraganaInput = (<HTMLInputElement>document.getElementById("hiragana"))
+
+    englishInput.value = ""
+    kanjiInput.value = ""
+    hiraganaInput.value = ""
+    
 }
 
 
