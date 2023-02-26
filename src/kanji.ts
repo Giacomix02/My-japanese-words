@@ -1,4 +1,5 @@
 let idCount = 0
+let modifyId : string = ""
 
 function showAddWord(){
     let add = document.getElementById("add")!
@@ -9,6 +10,54 @@ function hideAddWord(){
     let add = document.getElementById("add")!
     add.style.display = "none"
 }
+
+function showModifyWord(){
+    let add = document.getElementById("modify")!
+    add.style.display = "block"
+
+    let englishText = (<HTMLInputElement>document.getElementById("englishModify"))
+    let kanjiText = (<HTMLInputElement>document.getElementById("kanjiModify"))
+    let hiraganaText = (<HTMLInputElement>document.getElementById("hiraganaModify"))
+
+    let div = document.getElementById(modifyId)!
+    let english = div.getElementsByClassName("english")[0] as HTMLAnchorElement
+    let kanji = div.getElementsByClassName("kanji")[0] as HTMLAnchorElement
+    let hiragana = div.getElementsByClassName("hiragana")[0] as HTMLAnchorElement
+    englishText.value = english.textContent!
+    kanjiText.value = kanji.textContent!
+    hiraganaText.value = hiragana.textContent!
+}
+
+function hideModifyWord(){
+    let add = document.getElementById("modify")!
+    add.style.display = "none"
+}
+
+function modifyWord(){
+    let englishText = (<HTMLInputElement>document.getElementById("englishModify")).value
+    let kanjiText = (<HTMLInputElement>document.getElementById("kanjiModify")).value
+    let hiraganaText = (<HTMLInputElement>document.getElementById("hiraganaModify")).value
+
+    if(englishText == "" || kanjiText == "" || hiraganaText == ""){
+        alert("You must fill all the fields")
+        return
+    }
+
+    let div = document.getElementById(modifyId)!
+    let english = div.getElementsByClassName("english")[0] as HTMLAnchorElement
+    let kanji = div.getElementsByClassName("kanji")[0] as HTMLAnchorElement
+    let hiragana = div.getElementsByClassName("hiragana")[0] as HTMLAnchorElement
+
+    english.textContent = englishText
+    kanji.textContent = kanjiText
+    hiragana.textContent = hiraganaText
+
+    hideModifyWord()
+
+
+}
+
+
 
 function addWord(){
 
@@ -29,20 +78,17 @@ function addWord(){
 
     let english = document.createElement("a")
     
-    
     let text = document.createTextNode(englishText)
     english.appendChild(text)               
     english.classList.add("english")
 
     let kanji = document.createElement("a")
-
     
     let textKanji = document.createTextNode(kanjiText)
     kanji.appendChild(textKanji)
     kanji.classList.add("kanji")
 
     let hiragana = document.createElement("a")
-
     
     let textHiragana = document.createTextNode(hiraganaText)
     hiragana.appendChild(textHiragana)
@@ -53,6 +99,10 @@ function addWord(){
     let editImage = document.createElement("img")
     editImage.src = "/edit.svg"
     editImage.classList.add("edit-button")
+    editImage.addEventListener("click",()=>{
+        modifyId = div.id
+        showModifyWord()
+    })
     editButton.appendChild(editImage);
 
     let deleteButton = document.createElement("button")
@@ -102,6 +152,11 @@ add.addEventListener("click",addWord)
 let cancel = document.getElementById("cancel")!
 cancel.addEventListener("click",hideAddWord)
 
+let cancelModify = document.getElementById("cancelModify")!
+cancelModify.addEventListener("click",hideModifyWord)
+
+let modify = document.getElementById("modifyWord")!
+modify.addEventListener("click",modifyWord)
 
 
 export{}
