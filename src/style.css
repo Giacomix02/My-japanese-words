@@ -49,7 +49,9 @@ input, a {
   background-color: var(--primary-color);
   border-radius: 10px;
   padding: 1rem;
-  max-width: 100rem;
+  max-width: 35rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .spacer-menu-bar-inside {
@@ -70,12 +72,11 @@ input, a {
 
 .home {
   display: flex;
-  align-items: center;
-  justify-content: center;
   animation: fadeInAnimation ease 2s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .home-text {
@@ -84,7 +85,6 @@ input, a {
   text-align: center;
   margin-top: 6rem;
   background-color: var(--labels);
-  max-width: 50rem;
   min-height: 15rem;
   transition: transform 1s;
   flex: 1;
@@ -137,7 +137,6 @@ input, a {
   border-radius: 20px;
   padding: 1rem;
   align-items: center;
-  min-width: fit-content;
   /*padding-right: 40rem;*/
   animation: fadeInAnimation ease 1.5s;
   animation-iteration-count: 1;
