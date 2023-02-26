@@ -94,18 +94,18 @@ function addWord(){
     hiragana.appendChild(textHiragana)
     hiragana.classList.add("hiragana")
 
-    let editButton = document.createElement("button")
+    let editButton = document.createElement("button")   /*EDIT BUTTON*/
     editButton.classList.add("button-row")
     let editImage = document.createElement("img")
     editImage.src = "/edit.svg"
-    editImage.classList.add("edit-button")
+    editButton.classList.add("edit-button")
     editImage.addEventListener("click",()=>{
         modifyId = div.id
         showModifyWord()
     })
     editButton.appendChild(editImage);
 
-    let deleteButton = document.createElement("button")
+    let deleteButton = document.createElement("button") /*DELETE BUTTON*/
     deleteButton.classList.add("button-row")
     deleteButton.classList.add("delete-button")
     deleteButton.addEventListener("click",()=>{
