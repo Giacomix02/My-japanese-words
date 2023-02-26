@@ -44,14 +44,21 @@ input, a {
 }
 
 .head {
+  gap: 1rem;
   flex: 1;
-  display: flex;
   background-color: var(--primary-color);
   border-radius: 10px;
   padding: 1rem;
   max-width: 35rem;
   margin-left: auto;
   margin-right: auto;
+  min-width: 20rem;
+}
+
+.menu-choice {
+  margin-right: auto;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .spacer-menu-bar-inside {
@@ -62,13 +69,10 @@ input, a {
   cursor: pointer;
   font-weight: bold;
   margin-left: auto;
+  justify-content: end;
 }
 
-.menu-choice {
-  margin-right: 5rem;
-  cursor: pointer;
-  font-weight: bold;
-}
+
 
 .home {
   display: flex;
@@ -141,7 +145,7 @@ input, a {
   animation: fadeInAnimation ease 1.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  min-width: 15rem;
+  min-width: fit-content;
 }
 
 .image{
@@ -177,7 +181,7 @@ input, a {
 }
 
 .overlay {
-  position:fixed; /* Sit on top of the page content */
+  position:absolute; /* Sit on top of the page content */
   display: flex ; /* Hidden by default */
   width: 100%; /* Full width (cover the whole page) */
   height: 100%; /* Full height (cover the whole page) */
