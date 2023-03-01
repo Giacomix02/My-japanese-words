@@ -37,77 +37,6 @@ class Word{
     }
 }
 
-console.log("idDiv                    ----- oggetto in json ----      idLocalstorage")
-
-for(let i = 0; i < localStorage.length; i++){   //load words from local storage
-    let word = JSON.parse(localStorage.getItem(i.toString())!) as Word
-    
-
-    let container = document.getElementById("container")!
-
-    let div = document.createElement("div")
-    div.classList.add("words-show")
-    div.id = localStorage.key(i)!
-
-    console.log(div.id +"-----"+ localStorage.getItem(idCount.toString()) +"-----"+ localStorage.key(i))
-
-    let english = document.createElement("a")
-    
-    let text = document.createTextNode(word.english)
-    english.appendChild(text)               
-    english.classList.add("english")
-
-    let kanji = document.createElement("a")
-    
-    let textKanji = document.createTextNode(word.kanji)
-    kanji.appendChild(textKanji)
-    kanji.classList.add("kanji")
-
-    let hiragana = document.createElement("a")
-    
-    let textHiragana = document.createTextNode(word.hiragana)
-    hiragana.appendChild(textHiragana)
-    hiragana.classList.add("hiragana")
-
-    let editButton = document.createElement("button")   /*EDIT BUTTON*/
-    editButton.classList.add("button-row")
-    let editImage = document.createElement("img")
-    editImage.src = "/edit.svg"
-    editButton.classList.add("edit-button")
-    editImage.addEventListener("click",()=>{
-        modifyId = div.id
-        showModifyWord()
-    })
-    editButton.appendChild(editImage);
-
-    let deleteButton = document.createElement("button") /*DELETE BUTTON*/
-    deleteButton.classList.add("button-row")
-    deleteButton.classList.add("delete-button")
-    deleteButton.addEventListener("click",()=>{
-        let id = deleteButton.parentElement!.id
-        let div = document.getElementById(id)
-        div!.remove()
-        //localStorage.removeItem(id)    // remove the worng id
-    })
-
-    deleteButton.id = "delete"
-    let deleteImage = document.createElement("img")
-    deleteImage.src = "/bin.svg"
-    deleteButton.appendChild(deleteImage)
-
-    div.appendChild(english)
-    div.appendChild(kanji)
-    div.appendChild(hiragana)
-    div.appendChild(editButton)
-    div.appendChild(deleteButton)
-
-    container.appendChild(div)
-
-    idCount++
-
-}
-
-
 
 function deleteAll(){
     idCount = 0
@@ -115,6 +44,81 @@ function deleteAll(){
     let container = document.getElementById("container")!
     container.innerHTML = ""
 }
+
+//console.log("idDiv                    ----- oggetto in json ----      idLocalstorage")
+
+if(localStorage.length!==0){
+    for(const i in localStorage){   //load words from local storage
+
+        if(localStorage.getItem(i.toString()) == null) break
+
+        let word = JSON.parse(localStorage.getItem(i.toString())!) as Word
+    
+        let container = document.getElementById("container")!
+    
+        let div = document.createElement("div")
+        div.classList.add("words-show")
+        div.id = i;
+    
+        console.log(localStorage.getItem(idCount.toString()))
+    
+        let english = document.createElement("a")
+        
+        let text = document.createTextNode(word.english)
+        english.appendChild(text)               
+        english.classList.add("english")
+    
+        let kanji = document.createElement("a")
+        
+        let textKanji = document.createTextNode(word.kanji)
+        kanji.appendChild(textKanji)
+        kanji.classList.add("kanji")
+    
+        let hiragana = document.createElement("a")
+        
+        let textHiragana = document.createTextNode(word.hiragana)
+        hiragana.appendChild(textHiragana)
+        hiragana.classList.add("hiragana")
+    
+        let editButton = document.createElement("button")   /*EDIT BUTTON*/
+        editButton.classList.add("button-row")
+        let editImage = document.createElement("img")
+        editImage.src = "/edit.svg"
+        editButton.classList.add("edit-button")
+        editImage.addEventListener("click",()=>{
+            modifyId = div.id
+            showModifyWord()
+        })
+        editButton.appendChild(editImage);
+    
+        let deleteButton = document.createElement("button") /*DELETE BUTTON*/
+        deleteButton.classList.add("button-row")
+        deleteButton.classList.add("delete-button")
+        deleteButton.addEventListener("click",()=>{
+            let id = deleteButton.parentElement!.id
+            let div = document.getElementById(id)
+            div!.remove()
+            localStorage.removeItem(id)    // remove the wrong id
+        })
+    
+        deleteButton.id = "delete"
+        let deleteImage = document.createElement("img")
+        deleteImage.src = "/bin.svg"
+        deleteButton.appendChild(deleteImage)
+    
+        div.appendChild(english)
+        div.appendChild(kanji)
+        div.appendChild(hiragana)
+        div.appendChild(editButton)
+        div.appendChild(deleteButton)
+    
+        container.appendChild(div)
+    
+        idCount++
+    
+    }
+}
+
 
 function showAddWord(){
     let add = document.getElementById("add")!
@@ -158,6 +162,9 @@ function modifyWord(){
         return
     }
 
+    let word = new Word(kanjiText,englishText,hiraganaText)
+    localStorage.setItem(modifyId,JSON.stringify(word))
+
     let div = document.getElementById(modifyId)!
     let english = div.getElementsByClassName("english")[0] as HTMLAnchorElement
     let kanji = div.getElementsByClassName("kanji")[0] as HTMLAnchorElement
@@ -188,7 +195,7 @@ function addWord(){
     let word = new Word(kanjiText,englishText,hiraganaText)             //save word in local storage and create object
     localStorage.setItem(idCount.toString(),JSON.stringify(word))
     localStorage.key(idCount)
-    console.log(idCount +"-----"+ localStorage.getItem(idCount.toString()) +"-----"+ localStorage.key(idCount))
+    //console.log(idCount +"-----"+ localStorage.getItem(idCount.toString()) +"-----"+ localStorage.key(idCount))
 
     let container = document.getElementById("container")!
 
@@ -232,7 +239,7 @@ function addWord(){
         let id = deleteButton.parentElement!.id
         let div = document.getElementById(id)
         div!.remove()
-        //localStorage.removeItem(id)
+        localStorage.removeItem(id)
     })
 
     deleteButton.id = "delete"

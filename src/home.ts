@@ -12,7 +12,7 @@ function changeLanguageHome(){
 }
 
 let counter = document.getElementById("kanjiCounter")! // with the "!" i'm sure that the element ins't null
-counter.textContent='9'
+counter.textContent=localStorage.length.toString()
 
 
 let listener = document.getElementById("hello")!
