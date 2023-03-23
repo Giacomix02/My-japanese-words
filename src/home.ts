@@ -1,4 +1,5 @@
 let homeClick=false
+//@ts-ignore
 import Binpic from "./icons/bin.svg?raw"
 import { createNoiseElement } from "../lib/util"
 

@@ -7,9 +7,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        nested: resolve(__dirname, 'src/kanji.html'),
-        nested: resolve(__dirname, 'src/quiz.html'),
-        nested: resolve(__dirname, 'src/user.html'),
+        nested: resolve(__dirname, 'src/routes/kanji/kanji.html'),
+        nested: resolve(__dirname, 'src/routes/quiz/quiz.html'),
+        nested: resolve(__dirname, 'src/routes/user/user.html'),
       },
     },
   },

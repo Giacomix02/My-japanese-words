@@ -1,6 +1,8 @@
 let idCount = 0
 let modifyId : string = ""
+//@ts-ignore
 import Binpic from "../../../src/icons/bin.svg?raw"
+//@ts-ignore
 import Editpic from "../../../src/icons/edit.svg?raw"
 import { createNoiseElement, parseSvg } from "../../../lib/util"
 
