@@ -1,8 +1,8 @@
 let idCount = 0
 let modifyId : string = ""
-import Binpic from "../public/bin.svg?raw"
-import Editpic from "../public/edit.svg?raw"
-import { createNoiseElement, parseSvg } from "./util"
+import Binpic from "../../../src/icons/bin.svg?raw"
+import Editpic from "../../../src/icons/edit.svg?raw"
+import { createNoiseElement, parseSvg } from "../../../lib/util"
 
 class Word{
     kanji : string
@@ -302,6 +302,7 @@ modify.addEventListener("click",modifyWord)
 
 let deleteAllW = document.getElementById("deleteAll")!
 deleteAllW.addEventListener("click",deleteAll)
+
 document.body.append(createNoiseElement())
 
 export{}

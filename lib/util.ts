@@ -10,14 +10,14 @@ export function createNoiseElement(){
     const noise = document.createElement("div")
     //@ts-ignore
     noise.style = `
-    background-image: url("/paper.png");
+    background-image: url("../../../../src/icons/paper.png");
     position: absolute;
     inset: 0;
     background-size: 120px;
     pointer-events: none;
     opacity: .012;
     z-index: 980;
-    animation: fade-in 4s;
+    animation: fade-in 2s;
     `
     return noise
 }

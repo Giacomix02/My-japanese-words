@@ -1,6 +1,6 @@
 let homeClick=false
-import Binpic from "../public/bin.svg?raw"
-import { createNoiseElement } from "./util"
+import Binpic from "./icons/bin.svg?raw"
+import { createNoiseElement } from "../lib/util"
 
 console.log(Binpic)
 function changeLanguageHome(){
