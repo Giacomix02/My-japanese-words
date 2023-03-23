@@ -3,7 +3,6 @@ let homeClick=false
 import Binpic from "./icons/bin.svg?raw"
 import { createNoiseElement } from "../lib/util"
 
-console.log(Binpic)
 function changeLanguageHome(){
     let text = document.getElementById("hello")!
     if(!homeClick){

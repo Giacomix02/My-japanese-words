@@ -65,8 +65,6 @@ if(localStorage.length!==0){
         div.classList.add("words-show")
         div.id = i;
     
-        console.log(localStorage.getItem(idCount.toString()))
-    
         let english = document.createElement("a")
         
         let text = document.createTextNode(word.english)
