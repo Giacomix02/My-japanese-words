@@ -8,6 +8,8 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         nested: resolve(__dirname, 'src/kanji.html'),
+        nested: resolve(__dirname, 'src/quiz.html'),
+        nested: resolve(__dirname, 'src/user.html'),
       },
     },
   },

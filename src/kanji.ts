@@ -1,5 +1,8 @@
 let idCount = 0
 let modifyId : string = ""
+import Binpic from "../public/bin.svg?raw"
+import Editpic from "../public/edit.svg?raw"
+import { createNoiseElement, parseSvg } from "./util"
 
 class Word{
     kanji : string
@@ -82,14 +85,18 @@ if(localStorage.length!==0){
     
         let editButton = document.createElement("button")   /*EDIT BUTTON*/
         editButton.classList.add("button-row")
-        let editImage = document.createElement("img")
-        editImage.src = "/edit.svg"
         editButton.classList.add("edit-button")
-        editImage.addEventListener("click",()=>{
+        editButton.addEventListener("click",()=>{
             modifyId = div.id
             showModifyWord()
         })
-        editButton.appendChild(editImage);
+
+        editButton.id = "edit"
+        let editImage = parseSvg(Editpic)
+        editButton.appendChild(editImage)
+        editImage.classList.add("second-icon")
+
+        
     
         let deleteButton = document.createElement("button") /*DELETE BUTTON*/
         deleteButton.classList.add("button-row")
@@ -102,10 +109,13 @@ if(localStorage.length!==0){
         })
     
         deleteButton.id = "delete"
-        let deleteImage = document.createElement("img")
-        deleteImage.src = "/bin.svg"
+        let deleteImage = parseSvg(Binpic)
         deleteButton.appendChild(deleteImage)
-    
+        deleteImage.classList.add("icon")
+
+
+
+
         div.appendChild(english)
         div.appendChild(kanji)
         div.appendChild(hiragana)
@@ -223,14 +233,17 @@ function addWord(){
 
     let editButton = document.createElement("button")   /*EDIT BUTTON*/
     editButton.classList.add("button-row")
-    let editImage = document.createElement("img")
-    editImage.src = "/edit.svg"
     editButton.classList.add("edit-button")
-    editImage.addEventListener("click",()=>{
+    editButton.addEventListener("click",()=>{
         modifyId = div.id
         showModifyWord()
     })
-    editButton.appendChild(editImage);
+    
+    editButton.id = "edit"
+    let editImage = document.createElement("div")
+    editImage.innerHTML = Editpic
+    editButton.appendChild(editImage)
+    editButton.classList.add("second-icon")
 
     let deleteButton = document.createElement("button") /*DELETE BUTTON*/
     deleteButton.classList.add("button-row")
@@ -243,9 +256,10 @@ function addWord(){
     })
 
     deleteButton.id = "delete"
-    let deleteImage = document.createElement("img")
-    deleteImage.src = "/bin.svg"
+    let deleteImage = document.createElement("div")
+    deleteImage.innerHTML = Binpic
     deleteButton.appendChild(deleteImage)
+    deleteButton.classList.add("icon")
 
 
     idCount++
@@ -288,7 +302,7 @@ modify.addEventListener("click",modifyWord)
 
 let deleteAllW = document.getElementById("deleteAll")!
 deleteAllW.addEventListener("click",deleteAll)
-
+document.body.append(createNoiseElement())
 
 export{}
 

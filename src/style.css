@@ -1,9 +1,40 @@
 :root {
+  --background: #F4EAD5;
+  --primary-color: #ED6E90;
+  --secondary-color: #b96d5a;
+  --button-color: #ABD8C7;
+  --labels: #C6A49A;
+}
+
+:root {
   --background: #264653;
   --button-color: #91d1eb;
-  --primary-color: #e76f51;
-  --secondary-color: #F14458;
+  --primary-color: #e05162;
+  --secondary-color: #e76f51;
   --labels: #e9c46a;
+}
+
+.icon, 
+.second-icon {
+  color: black;
+}
+
+
+.paper {
+  background-image: url("/paper.png");
+  position: absolute;
+  inset: 0;
+  background-size: calc(2px * 40);
+  pointer-events: none;
+  opacity: .012;
+  z-index: 980;
+  animation: fade-in 4s;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0
+  }
 }
 
 
@@ -20,11 +51,12 @@ html {
   user-select: none;
 }
 
-body{
+body {
   overflow-x: hidden;
 }
 
-input, a {
+input,
+a {
   text-decoration: none;
   color: inherit;
   font-family: 'Source Sans Pro', sans-serif;
@@ -35,11 +67,11 @@ input, a {
   display: flex;
 }
 
-.container{
+.container {
   display: flex
 }
 
-.spacer-menu-bar{
+.spacer-menu-bar {
   flex: 1;
 }
 
@@ -66,6 +98,7 @@ input, a {
 }
 
 .user {
+
   cursor: pointer;
   font-weight: bold;
   margin-left: auto;
@@ -100,7 +133,7 @@ input, a {
 }
 
 
-.title-home-div{
+.title-home-div {
   min-height: 10rem;
 }
 
@@ -108,12 +141,12 @@ input, a {
   font-size: 20px;
 }
 
-.add-text-button{
+.add-text-button {
   margin-left: 0.5rem;
   font-weight: bold;
 }
 
-.button{
+.button {
   cursor: pointer;
   padding: 0.5rem;
   display: flex;
@@ -124,15 +157,15 @@ input, a {
   margin-left: 3.3rem;
 }
 
-.spacer-button-right{
+.spacer-button-right {
   flex: 1;
 }
 
-.margin-div-button-outside{
+.margin-div-button-outside {
   margin-top: 30px;
 }
 
-.words-show{
+.words-show {
   gap: 0.8em;
   margin: 3rem;
   display: flex;
@@ -148,52 +181,57 @@ input, a {
   min-width: fit-content;
 }
 
-.image{
-  color:#e76f51;
+.image {
+  color: var(--primary-color);
 }
 
-.english{
+.english {
   font-weight: bold;
   font-size: 20px;
   margin-right: auto;
 }
 
-.kanji{
+.kanji {
   font-size: 20px;
   margin-right: auto;
 }
 
-.hiragana{
+.hiragana {
   font-size: 20px;
   margin-right: auto;
 }
 
-.button-row{
+.button-row {
   background-color: transparent;
   cursor: pointer;
   align-items: center;
   border-color: transparent;
 }
 
-.delete-button{
+.delete-button {
   margin-left: 2rem;
   justify-content: flex-end;
 }
 
 .overlay {
-  position:absolute; /* Sit on top of the page content */
-  display: flex ; /* Hidden by default */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
+  position: absolute;
+  /* Sit on top of the page content */
+  display: flex;
+  /* Hidden by default */
+  width: 100%;
+  /* Full width (cover the whole page) */
+  height: 100%;
+  /* Full height (cover the whole page) */
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   backdrop-filter: blur(0.2rem);
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  z-index: 2;
+  /* Specify a stack order in case you're using a different order for other elements */
 }
 
-.add-word-overlay{
+.add-word-overlay {
   margin-left: auto;
   margin-top: 10rem;
   margin-bottom: auto;
@@ -202,7 +240,7 @@ input, a {
   padding: 3rem;
   border-radius: 1rem;
   flex-direction: column;
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   opacity: 0.9;
   max-width: 50rem;
   animation: fadeInAnimation ease 0.3s;
@@ -210,22 +248,22 @@ input, a {
   animation-fill-mode: forwards;
 }
 
-.title{
+.title {
   align-self: center;
   font-weight: bold;
   padding-bottom: 10px;
   font-size: 20px;
 }
 
-.button-insert-all{
+.button-insert-all {
   margin-top: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
 
-.input-text{
-  background-color: #e9c46a;
+.input-text {
+  background-color: var(--labels);
   border-radius: 2rem;
   border-color: transparent;
   min-height: 2rem;
@@ -233,14 +271,14 @@ input, a {
   text-align: center;
 }
 
-.input-container{
+.input-container {
   gap: 2rem;
   display: flex;
   flex-direction: column;
   padding: 10px;
 }
 
-.button-word{
+.button-word {
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -253,7 +291,7 @@ input, a {
   min-width: 5rem;
 }
 
-.text-button{
+.text-button {
   font-weight: bold;
 }
 
@@ -261,40 +299,28 @@ input, a {
 
 
 /* form here animation */
-
-.user:hover {
-  transform: scale(1.2);
-  transition: ease-out 0.2s;
+.user,
+.menu-choice,
+.title-home,
+.button,
+.button-word {
+  transition: all 0.2s;
 }
 
-.menu-choice:hover {
-  transform: scale(1.2);
-  transition: ease-out 0.2s;
-}
-
-.title-home:hover {
-  transform: scale(1.2);
-  transition: ease-out 0.2s;
-}
-
-.button:hover{
+.user:hover,
+.menu-choice:hover,
+.title-home:hover,
+.button:hover,
+.button-word:hover {
   transform: scale(1.1);
-  transition: ease-out 0.2s;
-}
-
-.button-word:hover{
-  transform: scale(1.1);
-  transition: ease-out 0.2s;
 }
 
 @keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-     }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
-
-
-
