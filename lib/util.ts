@@ -10,7 +10,7 @@ export function createNoiseElement(){
     const noise = document.createElement("div")
     //@ts-ignore
     noise.style = `
-    background-image: url("paper.png");
+    background-image: url("/paper.png");
     position: absolute;
     inset: 0;
     background-size: 120px;
