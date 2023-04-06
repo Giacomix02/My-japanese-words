@@ -3,20 +3,44 @@
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width">
-        <link rel="icon" type="image/x-icon" href="/logo.svg">
+        <link rel="icon" type="image/x-icon" href="../../icons/logo.svg">
         <title>My Japanese Words</title>
     </head>
     <body>
         <div id="view-page">   <!--Pagina di visualizzazione-->
             <div class="container">
                   <div class="head wrapper">
-                      <a class="menu-choice" href="../index.html">Home</a>
-                      <a class="menu-choice" href="kanji.html">Kanji</a>
-                      <a class="menu-choice">Quiz</a>
-                      <a class="user">User</a>
+                      <a class="menu-choice" href="../../../index.html">Home</a>
+                      <a class="menu-choice" href="../kanji/kanji.html">Kanji</a>
+                      <a class="menu-choice" href="quiz.html">Quiz</a>
+                      <a class="user" href="../user/user.html">
+                        <img  src="../../icons/user.svg"></img>
+                    </a>
                   </div>
             </div>
+        
               <!-- end of the menu -->
+        <div class="container">
+            <div class="quiz-choice-container">
+                <select name="first-select" id="first-select" class="choice-box">
+                    <option value="">From</option>
+                    <option value="Kanji">Kanji</option>
+                    <option value="Hiragana">Hiragana</option>
+                    <option value="English">English</option>
+                </select>
+                <select name="second-select" id="second-select" class="choice-box">
+                    <option value="">To</option>
+                    <option value="Kanji">Kanji</option>
+                    <option value="Hiragana">Hiragana</option>
+                    <option value="English">English</option>
+                </select>
+                <button id="start-quiz" class="start-quiz"><img src="../../icons/play.svg"></button>
+            </div>
+        </div>
+
+        <div class="container">
+            <p class="coming-soon">COMING SOON</p>
+        </div>
             
 
         
