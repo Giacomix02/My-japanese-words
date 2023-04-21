@@ -22,25 +22,39 @@
               <!-- end of the menu -->
         <div class="container">
             <div class="quiz-choice-container">
-                <select name="first-select" id="first-select" class="choice-box">
-                    <option value="">From</option>
+                <select name="from-language" id="from-language" class="choice-box">
+                    <option value="" hidden selected>From</option>
                     <option value="Kanji">Kanji</option>
                     <option value="Hiragana">Hiragana</option>
                     <option value="English">English</option>
                 </select>
-                <select name="second-select" id="second-select" class="choice-box">
-                    <option value="">To</option>
+                <select name="to-language" id="to-language" class="choice-box">
+                    <option value="" hidden selected>To</option>
                     <option value="Kanji">Kanji</option>
                     <option value="Hiragana">Hiragana</option>
                     <option value="English">English</option>
                 </select>
-                <button id="start-quiz" class="start-quiz"><img src="../../icons/play.svg"></button>
+                <button id="start-quiz" class="start-quiz" disabled><img src="../../icons/play.svg"></button>
             </div>
         </div>
 
         <div class="container">
             <p class="coming-soon">COMING SOON</p>
         </div>
+
+        <!-- 
+            
+        <div id="show-quiz" class="quiz">
+            <div class="word">
+                <a class="toTranslate" id="word">Press play to start</a>
+            </div>
+            <div class="answer">
+                <input type="text" id="answer" class="answer-box" placeholder="Answer">
+                <button id="check-answer" class="check-answer"><img src="../../icons/send.svg"></button>
+            </div>
+        </div>
+
+         -->
             
 
         

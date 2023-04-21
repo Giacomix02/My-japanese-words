@@ -71,12 +71,9 @@ a {
   font-size: 16px;
 }
 
-.wrapper {
-  display: flex;
-}
-
+.wrapper,
 .container {
-  display: flex
+  display: flex;
 }
 
 .spacer-menu-bar {
@@ -325,7 +322,7 @@ a {
 }
 
 .start-quiz{
-  display: 1;
+  flex: 1;
   align-items: center;
   justify-content: center;
   outline: inherit;
@@ -337,11 +334,60 @@ a {
 	font: inherit;
 	outline: inherit;
 }
-
+.start-quiz:disabled{
+  opacity: 0.2;
+  cursor:not-allowed;
+}
 .bold{
   font-weight: bold;
 }
 
+.quiz{
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  background-color: #e9c46a;
+  border-radius: 20px;
+  margin: 3rem;
+  min-width: fit-content;
+  align-items: center;
+  justify-content: center;
+}
+
+.answare{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.check-answer{
+  flex: 1;
+  align-items: center;
+  align-items: center;
+  justify-content: center;
+  outline: inherit;
+  cursor: pointer;
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+}
+
+.answer-box{
+  background-color: #91d1eb;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  border: none;
+}
+
+.toTranslate{
+  font-size: 60px;
+}
+
+.word{
+  margin-bottom: 10rem;
+}
 
 /* form here animation */
 .user,
@@ -349,7 +395,8 @@ a {
 .title-home,
 .button,
 .button-word,
-.start-quiz {
+.start-quiz,
+.check-answer {
   transition: all 0.2s;
 }
 
@@ -358,7 +405,8 @@ a {
 .title-home:hover,
 .button:hover,
 .button-word:hover,
-.start-quiz:hover {
+.start-quiz:hover,
+.check-answer:hover {
   transform: scale(1.1);
 }
 
