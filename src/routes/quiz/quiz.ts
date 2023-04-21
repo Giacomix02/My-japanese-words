@@ -3,7 +3,8 @@ import {Word} from "../../../public/Word"
 import Binpic from "../../../src/icons/bin.svg?raw"
 //@ts-ignore
 import Editpic from "../../../src/icons/edit.svg?raw"
-import { createNoiseElement, parseSvg } from "../../../lib/util"
+import { createNoiseElement} from "../../../lib/util"
+
 
 let fromSelected = document.getElementById("from-language")! as HTMLSelectElement
 let toSelected = document.getElementById("to-language")! as HTMLSelectElement
@@ -19,7 +20,12 @@ function play(from:string,to:string){
     let word = JSON.parse(localStorage.getItem("0")!) as Word
     console.log(word.english)
     toTranslate.textContent=word.english
+    if(from==="Hiragana"){
 
+    }
+    if(to==="english"){
+
+    }
 }
 
 function fromLanguageChange(){
