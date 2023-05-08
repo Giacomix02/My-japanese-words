@@ -20,7 +20,9 @@
   color: black;
 }
 
+.view-page{
 
+}
 
 .paper {
   background-image: url("/paper.png");
@@ -338,6 +340,17 @@ a {
   opacity: 0.2;
   cursor:not-allowed;
 }
+
+.button-word:disabled{
+  opacity: 0.5;
+  cursor:not-allowed;
+}
+
+.button-word:disabled{
+  opacity: 0.5;
+  cursor:not-allowed;
+}
+
 .bold{
   font-weight: bold;
 }
@@ -348,37 +361,45 @@ a {
   flex-direction: column;
   background-color: #e9c46a;
   border-radius: 20px;
-  margin: 3rem;
+  /*margin: 3rem;*/
   min-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
   align-items: center;
   justify-content: center;
+  aspect-ratio: 1;
+  max-width: 30rem;
 }
 
-.answare{
+.answer{
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  width: 100%;
 }
 
 .check-answer{
-  flex: 1;
+  /*flex: 1;*/
   align-items: center;
   align-items: center;
   justify-content: center;
   outline: inherit;
   cursor: pointer;
-  background: none;
+  background:var(--primary-color);
+  border-radius: 1rem;
 	color: inherit;
 	border: none;
-	padding: 0;
+	padding: 0.5rem;
 	font: inherit;
 }
 
 .answer-box{
   background-color: #91d1eb;
   border-radius: 1rem;
-  padding: 0.5rem;
+  padding: 0.8rem;
   border: none;
+  flex: 1;
 }
 
 .toTranslate{
@@ -386,7 +407,9 @@ a {
 }
 
 .word{
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
+  display: flex;
+  text-align: center;
 }
 
 /* form here animation */

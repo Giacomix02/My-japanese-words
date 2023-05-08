@@ -9,6 +9,7 @@ import {Word} from "../../../public/Word"
 
 
 
+
 function deleteAll(){
     idCount = 0
     localStorage.clear()
@@ -250,11 +251,19 @@ function addWord(){
     
 }
 
+function addButtonActivate(){
+    add.disabled=!Boolean(english.value && hiragana.value)
+}
+
+function modifyButtonActivate(){
+    modify.disabled=!Boolean(englishModify.value && hiraganaModify.value)
+}
+
 
 let button = document.getElementById("button")!
 button.addEventListener("click",showAddWord)
 
-let add = document.getElementById("insertWord")!
+let add = document.getElementById("insertWord")! as HTMLButtonElement
 add.addEventListener("click",addWord)
 
 let cancel = document.getElementById("cancel")!
@@ -263,13 +272,29 @@ cancel.addEventListener("click",hideAddWord)
 let cancelModify = document.getElementById("cancelModify")!
 cancelModify.addEventListener("click",hideModifyWord)
 
-let modify = document.getElementById("modifyWord")!
+let modify = document.getElementById("modifyWord")! as HTMLButtonElement
 modify.addEventListener("click",modifyWord)
 
 let deleteAllW = document.getElementById("deleteAll")!
 deleteAllW.addEventListener("click",deleteAll)
 
+
 document.body.append(createNoiseElement())
+
+
+let english = document.getElementById("english")! as HTMLInputElement
+let englishModify = document.getElementById("englishModify")! as HTMLInputElement
+let kanji = document.getElementById("kanji")! as HTMLInputElement
+let kanjiModify = document.getElementById("kanjiModify")! as HTMLInputElement
+let hiragana = document.getElementById("hiragana")! as HTMLInputElement
+let hiraganaModify = document.getElementById("hiraganaModify")! as HTMLInputElement
+
+english.addEventListener( "input", addButtonActivate ) 
+englishModify.addEventListener( "input", modifyButtonActivate )
+kanji.addEventListener( "input", addButtonActivate ) 
+kanjiModify.addEventListener( "input", modifyButtonActivate )
+hiragana.addEventListener( "input", addButtonActivate ) 
+hiraganaModify.addEventListener( "input", modifyButtonActivate )
 
 export{}
 

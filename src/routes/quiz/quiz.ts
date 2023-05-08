@@ -17,17 +17,25 @@ function playPressed(){
 
 function play(from:string,to:string){
     let toTranslate = document.getElementById("word")! as HTMLParagraphElement
-    let word = JSON.parse(localStorage.getItem("0")!) as Word
-    console.log(word.english)
-    toTranslate.textContent=word.english
-    if(from==="Hiragana"){
-
+    
+    let words: Word[] = [];
+    
+    if(localStorage.length!==0){
+        for(const i in localStorage){   //load words from local storage
+            if(localStorage.getItem(i.toString()) == null) break
+            words.push(JSON.parse(localStorage.getItem(i.toString())!) as Word) 
+        }
+        JSON.stringify(words)
+    }else{
+        toTranslate.textContent="Insert words"
     }
-    if(to==="english"){
 
-    }
+    console.log(words)
+    
+    const word = words[Math.floor(Math.random() * words.length)]
+    const fromText = word[from.toLowerCase()]
+    console.log(fromText)
 }
-
 function fromLanguageChange(){
     let select = fromSelected.value   
     disableValue(toSelected,select)
@@ -55,8 +63,17 @@ function validate(){
     playButton.disabled=(from===""||to==="")
 }
 
+function checkAnswer(){
+    console.log(answerBox.value)
+}
+
 let playButton = document.getElementById("start-quiz")! as HTMLButtonElement
 playButton.addEventListener("click",playPressed)
+
+let answerBox = document.getElementById("answer")! as HTMLInputElement
+let answerButton = document.getElementById("check-answer")! as HTMLButtonElement
+
+answerButton.addEventListener("click",checkAnswer)
 
 
 fromSelected.addEventListener("change",fromLanguageChange)
