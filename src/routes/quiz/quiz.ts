@@ -15,6 +15,7 @@ function playPressed(){
     play(from,to)
 }
 
+//@ts-ignore
 function play(from:string,to:string){
     let toTranslate = document.getElementById("word")! as HTMLParagraphElement
     
