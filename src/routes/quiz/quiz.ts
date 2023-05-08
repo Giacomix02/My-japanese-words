@@ -31,10 +31,10 @@ function play(from:string,to:string){
     }
 
     console.log(words)
-    
+    /*
     const word = words[Math.floor(Math.random() * words.length)]
     const fromText = word[from.toLowerCase()]
-    console.log(fromText)
+    console.log(fromText)*/
 }
 function fromLanguageChange(){
     let select = fromSelected.value   
