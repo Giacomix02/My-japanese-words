@@ -134,11 +134,6 @@ function modifyWord(){
     let kanjiText = (<HTMLInputElement>document.getElementById("kanjiModify")).value
     let hiraganaText = (<HTMLInputElement>document.getElementById("hiraganaModify")).value
 
-    if(englishText == "" || kanjiText == "" || hiraganaText == ""){
-        alert("You must fill all the fields")
-        return
-    }
-
     let word = new Word(kanjiText,englishText,hiraganaText)
     localStorage.setItem(modifyId,JSON.stringify(word))
 
@@ -163,11 +158,6 @@ function addWord(){
     let englishText = (<HTMLInputElement>document.getElementById("english")).value
     let kanjiText = (<HTMLInputElement>document.getElementById("kanji")).value
     let hiraganaText = (<HTMLInputElement>document.getElementById("hiragana")).value
-
-    if(englishText == "" || kanjiText == "" || hiraganaText == ""){
-        alert("You must fill all the fields")
-        return
-    }
 
     let word = new Word(kanjiText,englishText,hiraganaText)             //save word in local storage and create object
     localStorage.setItem(idCount.toString(),JSON.stringify(word))
