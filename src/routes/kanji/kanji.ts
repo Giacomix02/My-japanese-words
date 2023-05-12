@@ -6,7 +6,9 @@ import Binpic from "../../../src/icons/bin.svg?raw"
 import Editpic from "../../../src/icons/edit.svg?raw"
 import { createNoiseElement, parseSvg } from "../../../lib/util"
 import {Word} from "../../../public/Word"
-
+//@ts-ignore
+import { Language } from "../../../public/Word"
+import { DB } from "../../../public/Word"
 
 
 
@@ -25,6 +27,7 @@ if(localStorage.length!==0){
         if(localStorage.getItem(i.toString()) == null) break
 
         let word = JSON.parse(localStorage.getItem(i.toString())!) as Word
+        word = Word.fromJson(word)
     
         let container = document.getElementById("container")!
     
@@ -34,19 +37,19 @@ if(localStorage.length!==0){
     
         let english = document.createElement("a")
         
-        let text = document.createTextNode(word.english)
+        let text = document.createTextNode(word.getWord("english"))
         english.appendChild(text)               
         english.classList.add("english")
     
         let kanji = document.createElement("a")
         
-        let textKanji = document.createTextNode(word.kanji)
+        let textKanji = document.createTextNode(word.getWord("kanji"))
         kanji.appendChild(textKanji)
         kanji.classList.add("kanji")
     
         let hiragana = document.createElement("a")
         
-        let textHiragana = document.createTextNode(word.hiragana)
+        let textHiragana = document.createTextNode(word.getWord("hiragana"))
         hiragana.appendChild(textHiragana)
         hiragana.classList.add("hiragana")
     
@@ -135,7 +138,7 @@ function modifyWord(){
     let hiraganaText = (<HTMLInputElement>document.getElementById("hiraganaModify")).value
 
     let word = new Word(kanjiText,englishText,hiraganaText)
-    localStorage.setItem(modifyId,JSON.stringify(word))
+    localStorage.setItem(modifyId,JSON.stringify(new DB(word)))
 
     let div = document.getElementById(modifyId)!
     let english = div.getElementsByClassName("english")[0] as HTMLAnchorElement
@@ -160,7 +163,7 @@ function addWord(){
     let hiraganaText = (<HTMLInputElement>document.getElementById("hiragana")).value
 
     let word = new Word(kanjiText,englishText,hiraganaText)             //save word in local storage and create object
-    localStorage.setItem(idCount.toString(),JSON.stringify(word))
+    localStorage.setItem(idCount.toString(),JSON.stringify(new DB(word)))
     localStorage.key(idCount)
     //console.log(idCount +"-----"+ localStorage.getItem(idCount.toString()) +"-----"+ localStorage.key(idCount))
 

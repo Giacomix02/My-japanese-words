@@ -367,6 +367,11 @@ a {
   justify-content: center;
   aspect-ratio: 1;
   max-width: 30rem;
+
+  animation: fadeInAnimation ease 1.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  min-width: fit-content;
 }
 
 .answer{
@@ -391,6 +396,11 @@ a {
 	font: inherit;
 }
 
+.check-answer:disabled{
+  opacity: 0.5;
+  cursor:not-allowed;
+}
+
 .answer-box{
   background-color: #91d1eb;
   border-radius: 1rem;
@@ -403,10 +413,26 @@ a {
   font-size: 60px;
 }
 
+
 .word{
   margin-bottom: 5rem;
   display: flex;
   text-align: center;
+}
+
+.correct{
+  border-color: green;
+  border-style: dashed;
+}
+
+.wrong{
+  border-color: red;
+  border-style: dashed;
+}
+
+
+*:focus {
+  outline: none;
 }
 
 /* form here animation */

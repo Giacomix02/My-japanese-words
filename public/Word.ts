@@ -1,35 +1,39 @@
+export type Language = "kanji" | "english" | "hiragana"
+
 export class Word{
-    kanji : string
-    english : string
-    hiragana : string
+    data : Record<Language,string>
 
     constructor(kanji : string, english : string, hiragana : string){
-        this.kanji = kanji
-        this.english = english
-        this.hiragana = hiragana
+        this.data = {
+            kanji,
+            english,
+            hiragana
+        }
     }
 
-    getKanji(){
-        return this.kanji
+    static fromJson(json : any){
+        return new Word(json.kanji,json.english,json.hiragana)
     }
 
-    getEnglish(){
-        return this.english
+    static toJson(){
+        return null
+    }
+    
+    getWord(language:Language){
+        return this.data[language]
+    }
+}
+
+export class DB{
+    private hiragana:string
+    private english:string
+    private kanji:string
+
+    constructor(w:Word){
+        this.hiragana = w.getWord("hiragana")
+        this.english = w.getWord("english")
+        this.kanji = w.getWord("kanji")
     }
 
-    getHiragana(){
-        return this.hiragana
-    }
 
-    setKanji(kanji : string){
-        this.kanji = kanji
-    }
-
-    setEnglish(english : string){
-        this.english = english
-    }
-
-    setHiragana(hiragana : string){
-        this.hiragana = hiragana
-    }
 }
