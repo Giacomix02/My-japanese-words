@@ -25,8 +25,11 @@ export class Word{
 }
 
 export class DB{
+    //@ts-ignore
     private hiragana:string
+    //@ts-ignore
     private english:string
+    //@ts-ignore
     private kanji:string
 
     constructor(w:Word){
