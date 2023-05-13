@@ -1,37 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width">
-        <link rel="icon" type="image/x-icon" href="/src/icons/logo.svg">
-        <title>My Japanese Words</title>
-    </head>
-    <body>
-        <div class="container">
-            <div class="head wrapper">
-                <a class="menu-choice" href="index.html">Home</a>
-                <a class="menu-choice" href="src/routes/kanji/kanji.html">Kanji</a>
-                <a class="menu-choice" href="src/routes/quiz/quiz.html">Quiz</a>
-                <a class="user" href="src/routes/user/user.html">
-                    <img  src="src/icons/user.svg"></img>
-                </a>
-            </div>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/x-icon" href="/src/icons/logo.svg">
+    <title>My Japanese Words</title>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PQ6WNMEWRG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-PQ6WNMEWRG');
+</script>
+
+<body>
+    <div class="container">
+        <div class="head wrapper">
+            <a class="menu-choice" href="index.html">Home</a>
+            <a class="menu-choice" href="src/routes/kanji/kanji.html">Kanji</a>
+            <a class="menu-choice" href="src/routes/quiz/quiz.html">Quiz</a>
+            <a class="user" href="src/routes/user/user.html">
+                <img src="src/icons/user.svg"></img>
+            </a>
         </div>
-        <!-- end of the menu -->
-        <div class="wrapper home">
-            <div class="home-text">
-              <div class="title-home-div">
-                <a class="title-home" id = "hello">HELLO!</a>
-              </div>
-                <a class="info-home">You have a vocabulary of</a>
-                <br>
-                <a class="info-home" id="kanjiCounter"></a>
-                <br>
-                <a class="info-home">Kanji</a>
+    </div>
+    <!-- end of the menu -->
+    <div class="wrapper home">
+        <div class="home-text">
+            <div class="title-home-div">
+                <a class="title-home" id="hello">HELLO!</a>
             </div>
+            <a class="info-home">You have a vocabulary of</a>
+            <br>
+            <a class="info-home" id="kanjiCounter"></a>
+            <br>
+            <a class="info-home">Kanji</a>
         </div>
-    </body>
-    <link rel="stylesheet" href="./src/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <script type="module" src="./src/home.ts"></script>
+    </div>
+</body>
+<link rel="stylesheet" href="./src/style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<script type="module" src="./src/home.ts"></script>
+
 </html>
