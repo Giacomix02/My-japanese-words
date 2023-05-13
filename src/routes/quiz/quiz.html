@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width">
-        <link rel="icon" type="image/x-icon" href="../../icons/logo.svg">
-        <title>My Japanese Words</title>
-    </head>
-    <body>
-        <div id="view-page" class="view-page">   <!--Pagina di visualizzazione-->
-            <div class="container">
-                  <div class="head wrapper">
-                      <a class="menu-choice" href="../../../index.html">Home</a>
-                      <a class="menu-choice" href="../kanji/kanji.html">Kanji</a>
-                      <a class="menu-choice" href="quiz.html">Quiz</a>
-                      <a class="user" href="../user/user.html">
-                        <img  src="../../icons/user.svg"></img>
-                    </a>
-                  </div>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/x-icon" href="../../icons/logo.svg">
+    <title>My Japanese Words</title>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PQ6WNMEWRG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-PQ6WNMEWRG');
+</script>
+
+<body>
+    <div id="view-page" class="view-page"> <!--Pagina di visualizzazione-->
+        <div class="container">
+            <div class="head wrapper">
+                <a class="menu-choice" href="../../../index.html">Home</a>
+                <a class="menu-choice" href="../kanji/kanji.html">Kanji</a>
+                <a class="menu-choice" href="quiz.html">Quiz</a>
+                <a class="user" href="../user/user.html">
+                    <img src="../../icons/user.svg"></img>
+                </a>
             </div>
+        </div>
 
-            
 
-              <!-- end of the menu -->
-              
+
+        <!-- end of the menu -->
+
         <div class="container">
             <div class="quiz-choice-container">
                 <select name="from-language" id="from-language" class="choice-box">
@@ -40,7 +51,7 @@
                 <button id="start-quiz" class="start-quiz" disabled><img src="../../icons/play.svg"></button>
             </div>
         </div>
-        
+
         <div id="show-quiz" class="quiz">
             <div class="word">
                 <a class="toTranslate" id="word">Press play to start</a>
@@ -50,12 +61,15 @@
                 <button id="check-answer" class="check-answer" disabled>Submit</button>
             </div>
         </div>
-    
-            
 
-        
-    </body>
-    <link rel="stylesheet" href="../../style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <script type="module" src="./quiz.ts"></script>
+
+
+
+</body>
+<link rel="stylesheet" href="../../style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<script type="module" src="./quiz.ts"></script>
+
 </html>

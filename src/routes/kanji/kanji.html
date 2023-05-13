@@ -1,77 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width">
-        <link rel="icon" type="image/x-icon" href="../../icons/logo.svg">
-        <title>My Japanese Words</title>
-    </head>
-    <body>
-        <div id="view-page">   <!--Pagina di visualizzazione-->
-            <div class="container">
-                  <div class="head wrapper">
-                      <a class="menu-choice" href="../../../index.html">Home</a>
-                      <a class="menu-choice" href="kanji.html">Kanji</a>
-                      <a class="menu-choice" href="../quiz/quiz.html">Quiz</a>
-                        <a class="user" href="../user/user.html">
-                            <img  src="../../icons/user.svg"></img>
-                        </a>
-                  </div>
-            </div>
-              <!-- end of the menu -->
-              <div class="wrapper margin-div-button-outside">
-                  <button class="button" id="button">
-                      <img src="../../icons/add.svg" class="image">
-                      <a class="add-text-button">Add</a> 
-                  </button>
-                  <button class="button" id="deleteAll">
-                    <img src="../../icons/bin.svg" class="image">
-                    <a class="add-text-button">Delete All</a> 
-                </button>
-                  <div class="spacer-button-right"> </div>
-              </div>
-              <div id="container"></div>
-        </div>
-        <div class="overlay" id="add" style="display: none;">
-             <div class="container add-word-overlay">
-                <a class="title">Add a word</a>
-                <div class="input-container">
-                    <input type="text" id="english" placeholder="English translation" class="input-text">
-                    <input type="text" id="kanji" placeholder="Kanji (Optional)" class="input-text">
-                    <input type="text" id="hiragana" placeholder="Hiragana" class="input-text">
-                </div>
-                <div class="button-insert-all">
-                    <button class="button-word" id="cancel">
-                        <a class="text-button">Cancel</a> 
-                    </button>
-                    <button class="button-word" id="insertWord" disabled>
-                        <a class="text-button">Add</a> 
-                    </button>
-                </div>
-             </div>
-        </div>
-        <div class="overlay" id="modify" style="display: none;">
-            <div class="container add-word-overlay">
-               <a class="title">Modify a word</a>
-               <div class="input-container">
-                   <input type="text" id="englishModify" placeholder="English translation" class="input-text">
-                   <input type="text" id="kanjiModify" placeholder="Kanji (Optional)" class="input-text">
-                   <input type="text" id="hiraganaModify" placeholder="Hiragana" class="input-text">
-               </div>
-               <div class="button-insert-all">
-                   <button class="button-word" id="cancelModify">
-                       <a class="text-button">Cancel</a> 
-                   </button>
-                   <button class="button-word" id="modifyWord">
-                       <a class="text-button">Modify</a> 
-                   </button>
-               </div>
-            </div>
-       </div>
 
-        
-    </body>
-    <link rel="stylesheet" href="../../style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <script type="module" src="./kanji.ts"></script>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/x-icon" href="../../icons/logo.svg">
+    <title>My Japanese Words</title>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PQ6WNMEWRG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-PQ6WNMEWRG');
+</script>
+
+<body>
+    <div id="view-page"> <!--Pagina di visualizzazione-->
+        <div class="container">
+            <div class="head wrapper">
+                <a class="menu-choice" href="../../../index.html">Home</a>
+                <a class="menu-choice" href="kanji.html">Kanji</a>
+                <a class="menu-choice" href="../quiz/quiz.html">Quiz</a>
+                <a class="user" href="../user/user.html">
+                    <img src="../../icons/user.svg"></img>
+                </a>
+            </div>
+        </div>
+        <!-- end of the menu -->
+        <div class="wrapper margin-div-button-outside">
+            <button class="button" id="button">
+                <img src="../../icons/add.svg" class="image">
+                <a class="add-text-button">Add</a>
+            </button>
+            <button class="button" id="deleteAll">
+                <img src="../../icons/bin.svg" class="image">
+                <a class="add-text-button">Delete All</a>
+            </button>
+            <div class="spacer-button-right"> </div>
+        </div>
+        <div id="container"></div>
+    </div>
+    <div class="overlay" id="add" style="display: none;">
+        <div class="container add-word-overlay">
+            <a class="title">Add a word</a>
+            <div class="input-container">
+                <input type="text" id="english" placeholder="English translation" class="input-text">
+                <input type="text" id="kanji" placeholder="Kanji (Optional)" class="input-text">
+                <input type="text" id="hiragana" placeholder="Hiragana" class="input-text">
+            </div>
+            <div class="button-insert-all">
+                <button class="button-word" id="cancel">
+                    <a class="text-button">Cancel</a>
+                </button>
+                <button class="button-word" id="insertWord" disabled>
+                    <a class="text-button">Add</a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="overlay" id="modify" style="display: none;">
+        <div class="container add-word-overlay">
+            <a class="title">Modify a word</a>
+            <div class="input-container">
+                <input type="text" id="englishModify" placeholder="English translation" class="input-text">
+                <input type="text" id="kanjiModify" placeholder="Kanji (Optional)" class="input-text">
+                <input type="text" id="hiraganaModify" placeholder="Hiragana" class="input-text">
+            </div>
+            <div class="button-insert-all">
+                <button class="button-word" id="cancelModify">
+                    <a class="text-button">Cancel</a>
+                </button>
+                <button class="button-word" id="modifyWord">
+                    <a class="text-button">Modify</a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<link rel="stylesheet" href="../../style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<script type="module" src="./kanji.ts"></script>
+
 </html>
