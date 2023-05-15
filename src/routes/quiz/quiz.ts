@@ -13,13 +13,26 @@ let toSelected = document.getElementById("to-language")! as HTMLSelectElement
 let toTranslate = document.getElementById("word")! as HTMLParagraphElement
 
 
-let words = await db.getWords()
+let words:Word[]
+let wordsFilter: Word[]
 
-if(words.length===0){
-    toTranslate.textContent = "Insert words"
+
+
+async function getArray() {
+    words = await db.getWords()
+    initializeArray()
 }
 
-let wordsFilter: Word[] = words;
+
+function initializeArray(){
+    if(words!.length===0){
+        toTranslate.textContent = "Insert words"
+    }else{
+        wordsFilter = words
+    }
+}
+
+
 
 function playPressed() {
     from = fromSelected.value.toLowerCase() as Language
@@ -139,5 +152,7 @@ toSelected.addEventListener("change", toLanguageChange)
 
 
 document.body.append(createNoiseElement())
+
+getArray()
 
 export { }

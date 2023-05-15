@@ -10,21 +10,29 @@ import { db } from "$/database"
 
 let modifyId: string = ""
 
-function deleteAll() {
+async function deleteAll() {
     db.deleteAll()
     let container = document.getElementById("container")!
     container.innerHTML = ""
 }
 
-//console.log("idDiv                    ----- oggetto in json ----      idLocalstorage")
 
-let words = await db.getWords()
+async function array(){
+    let words = await db.getWords()
+    initialize(words)
+}
 
 
-for (const w of words) {   //load words from local storage
+function initialize(words:Word[]){
+    for (const w of words!) {   
+        createRow(w)
+    }
+}
 
+
+function createRow(w:Word){
     let container = document.getElementById("container")!
-
+    
     let div = document.createElement("div")
     div.classList.add("words-show")
     div.id = w.getId()!
@@ -123,7 +131,7 @@ function hideModifyWord() {
     add.style.display = "none"
 }
 
-function modifyWord() {
+async function modifyWord() {
     let englishText = (<HTMLInputElement>document.getElementById("englishModify")).value
     let kanjiText = (<HTMLInputElement>document.getElementById("kanjiModify")).value
     let hiraganaText = (<HTMLInputElement>document.getElementById("hiraganaModify")).value
@@ -153,71 +161,11 @@ async function addWord() {
     let kanjiText = (<HTMLInputElement>document.getElementById("kanji")).value
     let hiraganaText = (<HTMLInputElement>document.getElementById("hiragana")).value
 
-    let word = new Word("",kanjiText, englishText, hiraganaText)             //save word in local storage and create object
+    let word = new Word("",kanjiText, englishText, hiraganaText)
     let id = await db.addWord(word)
-    //console.log(idCount +"-----"+ localStorage.getItem(idCount.toString()) +"-----"+ localStorage.key(idCount))
-
-    let container = document.getElementById("container")!
-
-    let div = document.createElement("div")
-    div.classList.add("words-show")
-    div.id = id
-
-    let english = document.createElement("a")
-
-    let text = document.createTextNode(englishText)
-    english.appendChild(text)
-    english.classList.add("english")
-
-    let kanji = document.createElement("a")
-
-    let textKanji = document.createTextNode(kanjiText)
-    kanji.appendChild(textKanji)
-    kanji.classList.add("kanji")
-
-    let hiragana = document.createElement("a")
-
-    let textHiragana = document.createTextNode(hiraganaText)
-    hiragana.appendChild(textHiragana)
-    hiragana.classList.add("hiragana")
-
-    let editButton = document.createElement("button")   /*EDIT BUTTON*/
-    editButton.classList.add("button-row")
-    editButton.classList.add("edit-button")
-    editButton.addEventListener("click", () => {
-        modifyId = div.id
-        showModifyWord()
-    })
-
-    editButton.id = "edit"
-    let editImage = document.createElement("div")
-    editImage.innerHTML = Editpic
-    editButton.appendChild(editImage)
-    editButton.classList.add("second-icon")
-
-    let deleteButton = document.createElement("button") /*DELETE BUTTON*/
-    deleteButton.classList.add("button-row")
-    deleteButton.classList.add("delete-button")
-    deleteButton.addEventListener("click", () => {
-        let id = deleteButton.parentElement!.id
-        let div = document.getElementById(id)
-        div!.remove()
-        db.removeWord(id)
-    })
-
-    deleteButton.id = "delete"
-    let deleteImage = document.createElement("div")
-    deleteImage.innerHTML = Binpic
-    deleteButton.appendChild(deleteImage)
-    deleteButton.classList.add("icon")
-
-    div.appendChild(english)
-    div.appendChild(kanji)
-    div.appendChild(hiragana)
-    div.appendChild(editButton)
-    div.appendChild(deleteButton)
-
-    container.appendChild(div)
+    word.setId(id)
+    
+    createRow(word)
 
     hideAddWord()
 
@@ -275,6 +223,8 @@ kanji.addEventListener("input", addButtonActivate)
 kanjiModify.addEventListener("input", modifyButtonActivate)
 hiragana.addEventListener("input", addButtonActivate)
 hiraganaModify.addEventListener("input", modifyButtonActivate)
+
+array()
 
 export { }
 
