@@ -15,6 +15,7 @@ class DB extends Dexie {
 
 }
 
+//@ts-ignore
 const db = new DB()
 
 type WordTable = {
