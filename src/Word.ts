@@ -1,42 +1,36 @@
 export type Language = "kanji" | "english" | "hiragana"
 
-export class Word{
-    data : Record<Language,string>
 
-    constructor(kanji : string, english : string, hiragana : string){
+export class Word{
+    data : Record<Language,any>
+    id:string | null
+
+    constructor(id:string | null,kanji : string, english : string, hiragana : string){
         this.data = {
             kanji,
             english,
             hiragana
         }
+        this.id=id
     }
 
     static fromJson(json : any){
-        return new Word(json.kanji,json.english,json.hiragana)
+        return new Word(json.id,json.kanji,json.english,json.hiragana)
     }
 
-    static toJson(){
-        return null
+    toJson(){
+        return this.data
     }
     
     getWord(language:Language){
         return this.data[language]
     }
-}
 
-export class DB{
-    //@ts-ignore
-    private hiragana:string
-    //@ts-ignore
-    private english:string
-    //@ts-ignore
-    private kanji:string
-
-    constructor(w:Word){
-        this.hiragana = w.getWord("hiragana")
-        this.english = w.getWord("english")
-        this.kanji = w.getWord("kanji")
+    getId(){
+        return this.id
     }
 
-
+    setId(id:string){
+        this.id=id
+    }
 }

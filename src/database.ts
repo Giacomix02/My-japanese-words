@@ -1,5 +1,6 @@
 // TODO use Dexie.js
 import Dexie from "dexie";
+import { Word } from "./Word";
 
 
 class DB extends Dexie {
@@ -12,12 +13,37 @@ class DB extends Dexie {
         });
     }
 
+    async getWords(){
+        let fromDB = await this.words.toArray()
+        return fromDB.map(Word.fromJson)
+    }
 
+    async addWord(word:Word){
+        let table:WordTable = word.toJson()
+        return await this.words.add(table)
+    }
+
+    async removeWord(id:string){
+        let idParsed = parseInt(id)
+        return await this.words.where("id").equals(idParsed).delete()
+    }
+    
+    async modifyWord(word:Word){
+        let table:WordTable = word.toJson()
+        let id = parseInt(word.getId()!)
+        this.words.where("id").equals(id).modify(table)
+    }
+
+    async deleteAll(){
+        this.words.clear()
+    }
 }
 
-//@ts-ignore
-const db = new DB()
+export const db = new DB()
 
 type WordTable = {
-    test: string
+    id?: number,
+    english: string,
+    hiragana: string,
+    kanji: string
 }

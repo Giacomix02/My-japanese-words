@@ -1,10 +1,11 @@
 import { Word } from "$/Word"
 //@ts-ignore
-import Binpic from "../../../src/icons/bin.svg?raw"
+import Binpic from "$/icons/bin.svg?raw"
 //@ts-ignore
-import Editpic from "../../../src/icons/edit.svg?raw"
-import { createNoiseElement } from "../../lib/util"
+import Editpic from "$/icons/edit.svg?raw"
+import { createNoiseElement } from "$lib/util"
 import { Language } from "$/Word"
+import { db } from "$/database"
 
 
 let fromSelected = document.getElementById("from-language")! as HTMLSelectElement
@@ -12,22 +13,13 @@ let toSelected = document.getElementById("to-language")! as HTMLSelectElement
 let toTranslate = document.getElementById("word")! as HTMLParagraphElement
 
 
-let words: Word[] = []; // words from db
+let words = await db.getWords()
 
-if (localStorage.length !== 0) {
-    for (const i in localStorage) {   //load words from local storage
-        if (localStorage.getItem(i.toString()) == null) break
-        let word = JSON.parse(localStorage.getItem(i.toString())!) as Word
-        word = Word.fromJson(word)
-        words.push(word)
-    }
-
-} else {
+if(words.length===0){
     toTranslate.textContent = "Insert words"
 }
 
 let wordsFilter: Word[] = words;
-
 
 function playPressed() {
     from = fromSelected.value.toLowerCase() as Language
