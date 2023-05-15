@@ -4,11 +4,11 @@ let modifyId : string = ""
 import Binpic from "../../../src/icons/bin.svg?raw"
 //@ts-ignore
 import Editpic from "../../../src/icons/edit.svg?raw"
-import { createNoiseElement, parseSvg } from "../../../lib/util"
-import {Word} from "../../../public/Word"
+import { createNoiseElement, parseSvg } from "$lib/util"
+import {Word} from "$/Word"
 //@ts-ignore
-import { Language } from "../../../public/Word"
-import { DB } from "../../../public/Word"
+import { Language } from "$/Word"
+import { DB } from "$/Word"
 
 
 

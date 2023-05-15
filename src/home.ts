@@ -1,7 +1,7 @@
 let homeClick=false
 //@ts-ignore
 import Binpic from "./icons/bin.svg?raw"
-import { createNoiseElement } from "../lib/util"
+import { createNoiseElement } from "$lib/util"
 
 function changeLanguageHome(){
     let text = document.getElementById("hello")!

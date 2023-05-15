@@ -430,6 +430,14 @@ a {
   border-style: dashed;
 }
 
+.correctWord{
+  color: green;
+}
+
+.wrongWord{
+  color: red;
+}
+
 
 *:focus {
   outline: none;
