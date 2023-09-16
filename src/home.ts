@@ -2,6 +2,7 @@ let homeClick=false
 //@ts-ignore
 import Binpic from "./icons/bin.svg?raw"
 import { createNoiseElement } from "$lib/util"
+import { db } from "$/database"
 
 function changeLanguageHome(){
     let text = document.getElementById("hello")!
@@ -15,7 +16,11 @@ function changeLanguageHome(){
 }
 
 let counter = document.getElementById("kanjiCounter")! // with the "!" i'm sure that the element ins't null
-counter.textContent=localStorage.length.toString()
+
+
+
+let num:number = await db.getNumberOfEntries()
+counter.textContent= num.toString()
 
 
 let listener = document.getElementById("hello")!

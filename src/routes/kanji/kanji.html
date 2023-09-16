@@ -19,28 +19,39 @@
 
 
 <body>
+ 
     <div id="view-page"> <!--Pagina di visualizzazione-->
-        <div class="container">
-            <div class="head wrapper">
-                <a class="menu-choice" href="../../../index.html">Home</a>
-                <a class="menu-choice" href="kanji.html">Kanji</a>
-                <a class="menu-choice" href="../quiz/quiz.html">Quiz</a>
-                <a class="user" href="../user/user.html">
-                    <img src="../../icons/user.svg"></img>
-                </a>
+        <div class="view-nav">
+            <div class="container head">
+                <div class="head-spacing ">
+                    <a class="menu-choice" href="../../../index.html">Home</a>
+                    <a class="menu-choice" href="kanji.html">Kanji</a>
+                    <a class="menu-choice" href="../quiz/quiz.html">Quiz</a>
+                    <!--<a class="user" href="../user/user.html">
+                        <img src="../../icons/user.svg"></img>-->
+                    </a>
+                </div>
             </div>
         </div>
+            
         <!-- end of the menu -->
         <div class="wrapper margin-div-button-outside">
             <button class="button" id="button">
                 <img src="../../icons/add.svg" class="image">
                 <a class="add-text-button">Add</a>
             </button>
+
+            <div class="search">
+                <button class="search-button" id="search-button">
+                    <img src="../../icons/search.svg" class="search-image">
+                </button>
+                <input type="text" id="search" placeholder="Search" class="search-inner">
+            </div>
+            
             <button class="button" id="deleteAll">
                 <img src="../../icons/bin.svg" class="image">
                 <a class="add-text-button">Delete All</a>
             </button>
-            <div class="spacer-button-right"> </div>
         </div>
         <div id="container"></div>
     </div>

@@ -12,8 +12,7 @@ let modifyId: string = ""
 
 async function deleteAll() {
     db.deleteAll()
-    let container = document.getElementById("container")!
-    container.innerHTML = ""
+    deleteAllHTMLRows()
 }
 
 
@@ -187,6 +186,25 @@ function modifyButtonActivate() {
     modify.disabled = !Boolean(englishModify.value && hiraganaModify.value)
 }
 
+async function search(){
+
+    deleteAllHTMLRows()
+    
+    let s:string = searchText.value
+
+    let words:Word[] = await db.search(s)
+    
+    for(let w of words){
+        createRow(w)
+    }
+}
+
+
+function deleteAllHTMLRows(){
+    let container = document.getElementById("container")!
+    container.innerHTML = ""
+}
+
 
 let button = document.getElementById("button")!
 button.addEventListener("click", showAddWord)
@@ -217,12 +235,18 @@ let kanjiModify = document.getElementById("kanjiModify")! as HTMLInputElement
 let hiragana = document.getElementById("hiragana")! as HTMLInputElement
 let hiraganaModify = document.getElementById("hiraganaModify")! as HTMLInputElement
 
+let searchButton = document.getElementById("search-button")! as HTMLButtonElement
+let searchText = document.getElementById("search")! as HTMLInputElement
+
 english.addEventListener("input", addButtonActivate)
 englishModify.addEventListener("input", modifyButtonActivate)
 kanji.addEventListener("input", addButtonActivate)
 kanjiModify.addEventListener("input", modifyButtonActivate)
 hiragana.addEventListener("input", addButtonActivate)
 hiraganaModify.addEventListener("input", modifyButtonActivate)
+
+searchButton.addEventListener("click",search)
+searchText.addEventListener("input",search)
 
 array()
 

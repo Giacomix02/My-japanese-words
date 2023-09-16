@@ -37,6 +37,22 @@ class DB extends Dexie {
     async deleteAll(){
         this.words.clear()
     }
+
+    async getNumberOfEntries(){
+        return this.words.count()
+    }
+
+    async search(search:string){
+        let out : Word[] = []
+        let words = await this.getWords()
+        for(let w of words){
+            if(w.getWord("english").includes(search) || w.getWord("hiragana").includes(search) || w.getWord("kanji").includes(search)){
+                out.push(w)
+            }
+        }
+        return out
+    }
+
 }
 
 export const db = new DB()

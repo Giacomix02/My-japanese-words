@@ -29,7 +29,7 @@ export class Word{
     getId(){
         return this.id
     }
-
+    
     setId(id:string){
         this.id=id
     }
