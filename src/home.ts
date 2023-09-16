@@ -17,15 +17,19 @@ function changeLanguageHome(){
 
 let counter = document.getElementById("kanjiCounter")! // with the "!" i'm sure that the element ins't null
 
+async function number(){
+    let num:number = await db.getNumberOfEntries()
 
+    counter.textContent= num.toString()
+    
+}
 
-let num:number = await db.getNumberOfEntries()
-counter.textContent= num.toString()
 
 
 let listener = document.getElementById("hello")!
 listener.addEventListener("click",changeLanguageHome)
 
 document.body.append(createNoiseElement())
+document.addEventListener("DOMContentLoaded", number)
 
 export{}
